@@ -5,8 +5,12 @@ import joblib
 
 from utils import build_features, to_dense_array  # important pour joblib.load
 
-MODEL_PATH = "models/fraud_model.joblib"
-COLS_PATH = "models/expected_columns.joblib"
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent
+MODEL_PATH = ROOT / "models" / "fraud_model.joblib"
+COLS_PATH  = ROOT / "models" / "expected_columns.joblib"
+
 
 # ---------- Helpers ----------
 @st.cache_resource
