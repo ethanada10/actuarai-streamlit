@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+
+# data (on ne push pas le dataset)
+data/
+
+# streamlit cache
+.streamlit/cache/
+
+# notebooks (optionnel)
+*.ipynb_checkpoints

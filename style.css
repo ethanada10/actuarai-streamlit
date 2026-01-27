@@ -1,0 +1,42 @@
+/* Hide Streamlit default menu/footer */
+#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
+header {visibility: hidden;}
+
+/* Center container width a bit */
+.block-container {padding-top: 1.2rem; padding-bottom: 2rem; max-width: 1200px;}
+
+/* Cards */
+.card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 18px;
+  padding: 18px 18px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
+.kpi {
+  display:flex;
+  gap:14px;
+  align-items:center;
+}
+
+.badge {
+  display:inline-block;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.05);
+}
+
+.badge-ok { border-color: rgba(34,197,94,0.35); background: rgba(34,197,94,0.10); }
+.badge-warn { border-color: rgba(245,158,11,0.35); background: rgba(245,158,11,0.10); }
+.badge-risk { border-color: rgba(239,68,68,0.35); background: rgba(239,68,68,0.10); }
+
+.small { color: rgba(229,231,235,0.72); font-size: 13px; }
+.title { font-size: 34px; font-weight: 800; letter-spacing: -0.02em; }
+.subtitle { color: rgba(229,231,235,0.72); margin-top: 6px; }
+
+hr { border: none; border-top: 1px solid rgba(255,255,255,0.08); margin: 1.2rem 0; }
