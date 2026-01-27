@@ -2,10 +2,6 @@ import os
 import pandas as pd
 import numpy as np
 import joblib
-from utils import to_dense_array
-...
-to_dense = FunctionTransformer(to_dense_array)
-
 
 from sklearn.model_selection import train_test_split
 from sklearn.compose import ColumnTransformer
@@ -13,9 +9,8 @@ from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder, FunctionTransformer
 from sklearn.impute import SimpleImputer
 from sklearn.ensemble import HistGradientBoostingClassifier
+
 from utils import to_dense_array
-
-
 
 DATA_PATH = "data/insurance_fraud_dataset.csv"
 MODEL_PATH = "models/fraud_model.joblib"
@@ -59,11 +54,13 @@ def main():
     if not os.path.exists(DATA_PATH):
         raise FileNotFoundError(f"Dataset introuvable: {DATA_PATH}")
 
-    df = pd.read_csv(DATA_PATH)
+    # ✅ IMPORTANT: ton CSV est séparé par des ';'
+    df = pd.read_csv(DATA_PATH, sep=";")
+
     df = build_features(df)
 
     if "fraud_reported" not in df.columns:
-        raise ValueError("La colonne target 'fraud_reported' est manquante.")
+        raise ValueError(f"Colonne target 'fraud_reported' introuvable. Colonnes: {list(df.columns)}")
 
     y = (df["fraud_reported"] == "Y").astype(int)
     X = df.drop(columns=["fraud_reported"])
@@ -72,8 +69,8 @@ def main():
         X, y, test_size=0.2, random_state=42, stratify=y
     )
 
-    num_cols = X_train.select_dtypes(include=["int64", "float64"]).columns.tolist()
-    cat_cols = X_train.select_dtypes(include=["object", "string"]).columns.tolist()
+    num_cols = X_train.select_dtypes(include=["int64", "float64", "int32", "float32"]).columns.tolist()
+    cat_cols = X_train.select_dtypes(include=["object", "string", "category"]).columns.tolist()
 
     numeric_pipe = Pipeline(steps=[
         ("imputer", SimpleImputer(strategy="median"))
@@ -93,7 +90,6 @@ def main():
     )
 
     to_dense = FunctionTransformer(to_dense_array)
-
 
     model = Pipeline(steps=[
         ("preprocess", preprocess),
