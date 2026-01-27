@@ -15,9 +15,19 @@ COLS_PATH  = ROOT / "models" / "expected_columns.joblib"
 # ---------- Helpers ----------
 @st.cache_resource
 def load_assets():
+    import os
+
+    st.sidebar.markdown("### 🔍 Debug modèles")
+    st.sidebar.write("cwd:", os.getcwd())
+    st.sidebar.write("ROOT:", str(ROOT))
+    st.sidebar.write("MODEL_PATH:", str(MODEL_PATH))
+    st.sidebar.write("MODEL exists:", MODEL_PATH.exists())
+    st.sidebar.write("COLS exists:", COLS_PATH.exists())
+
     model = joblib.load(MODEL_PATH)
     expected_cols = joblib.load(COLS_PATH)
     return model, expected_cols
+
 
 def load_css(path="style.css"):
     try:
