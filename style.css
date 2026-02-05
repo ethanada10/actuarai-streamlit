@@ -1,25 +1,81 @@
-/* Hide Streamlit default menu/footer */
+/* ============================= */
+/* 🔧 GLOBAL STREAMLIT CLEANUP */
+/* ============================= */
+
 #MainMenu {visibility: hidden;}
 footer {visibility: hidden;}
 header {visibility: hidden;}
 
-/* Center container width a bit */
-.block-container {padding-top: 1.2rem; padding-bottom: 2rem; max-width: 1200px;}
+.block-container {
+    padding-top: 1.2rem;
+    padding-bottom: 2rem;
+    max-width: 1200px;
+}
 
-/* Cards */
+
+/* ============================= */
+/* ⭐ HERO HEADER */
+/* ============================= */
+
+.header-hero {
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  border-radius: 22px;
+  padding: 28px;
+  margin-bottom: 25px;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+}
+
+.title {
+  font-size: 34px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  color: rgba(229,231,235,0.72);
+  margin-top: 6px;
+}
+
+
+/* ============================= */
+/* 🧱 CARDS */
+/* ============================= */
+
 .card {
   background: rgba(255,255,255,0.04);
   border: 1px solid rgba(255,255,255,0.08);
   border-radius: 18px;
-  padding: 18px 18px;
+  padding: 18px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  transition: all 0.25s ease;
 }
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.45);
+}
+
+
+/* ============================= */
+/* 📊 KPI STYLE */
+/* ============================= */
 
 .kpi {
   display:flex;
   gap:14px;
   align-items:center;
 }
+
+.small {
+  color: rgba(229,231,235,0.72);
+  font-size: 13px;
+}
+
+
+/* ============================= */
+/* 🏷️ BADGES */
+/* ============================= */
 
 .badge {
   display:inline-block;
@@ -31,12 +87,96 @@ header {visibility: hidden;}
   background: rgba(255,255,255,0.05);
 }
 
-.badge-ok { border-color: rgba(34,197,94,0.35); background: rgba(34,197,94,0.10); }
-.badge-warn { border-color: rgba(245,158,11,0.35); background: rgba(245,158,11,0.10); }
-.badge-risk { border-color: rgba(239,68,68,0.35); background: rgba(239,68,68,0.10); }
+.badge-ok {
+  border-color: rgba(34,197,94,0.35);
+  background: rgba(34,197,94,0.10);
+}
 
-.small { color: rgba(229,231,235,0.72); font-size: 13px; }
-.title { font-size: 34px; font-weight: 800; letter-spacing: -0.02em; }
-.subtitle { color: rgba(229,231,235,0.72); margin-top: 6px; }
+.badge-warn {
+  border-color: rgba(245,158,11,0.35);
+  background: rgba(245,158,11,0.10);
+}
 
-hr { border: none; border-top: 1px solid rgba(255,255,255,0.08); margin: 1.2rem 0; }
+.badge-risk {
+  border-color: rgba(239,68,68,0.35);
+  background: rgba(239,68,68,0.10);
+}
+
+.badge-low { background: rgba(34,197,94,0.15); }
+.badge-medium { background: rgba(245,158,11,0.15); }
+.badge-high { background: rgba(239,68,68,0.15); }
+
+
+/* ============================= */
+/* 🔘 PREMIUM BUTTONS */
+/* ============================= */
+
+.stButton button {
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
+  border-radius: 12px;
+  border: none;
+  padding: 10px 16px;
+  font-weight: 600;
+  color: white;
+  transition: 0.25s;
+}
+
+.stButton button:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 25px rgba(59,130,246,0.5);
+}
+
+
+/* ============================= */
+/* 📉 RESULT CARD FRAUDE */
+/* ============================= */
+
+.result-card {
+  text-align: center;
+  padding: 25px;
+  border-radius: 20px;
+  background: linear-gradient(
+    135deg,
+    rgba(239,68,68,0.2),
+    rgba(30,41,59,0.4)
+  );
+  border: 1px solid rgba(239,68,68,0.35);
+  margin-top: 15px;
+}
+
+.result-card h1 {
+  font-size: 52px;
+  font-weight: 900;
+  margin-top: 10px;
+}
+
+
+/* ============================= */
+/* 🎛️ INPUTS STYLE */
+/* ============================= */
+
+.stSelectbox, .stNumberInput, .stSlider {
+  background: rgba(255,255,255,0.03);
+  border-radius: 10px;
+}
+
+
+/* ============================= */
+/* 📂 SIDEBAR STYLE */
+/* ============================= */
+
+section[data-testid="stSidebar"] {
+  background: linear-gradient(180deg, #020617, #020617);
+  border-right: 1px solid rgba(255,255,255,0.05);
+}
+
+
+/* ============================= */
+/* 📏 DIVIDER */
+/* ============================= */
+
+hr {
+  border: none;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  margin: 1.2rem 0;
+}
